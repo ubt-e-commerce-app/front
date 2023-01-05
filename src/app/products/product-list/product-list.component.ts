@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe } from '@angular/core';
+import { IProduct } from './product';
 
 @Component({
   selector: 'app-product-list',
@@ -11,11 +12,11 @@ export class ProductListComponent implements OnInit {
   imageMargin = 2;
   showImage = false;
   listFilter = 'cart';
-  products: any[] = [
+  products: IProduct[] = [
     {
       "productId": 1,
-      "productName": "Hp-ProBook",
-      "productCode": "Pro-book-770",
+      "productName": "Hp ProBook",
+      "productCode": "Probook-770",
       "releaseDate": "March 18, 2022",
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, fuga. Itaque, provident.",
       "price": 700,
@@ -25,7 +26,7 @@ export class ProductListComponent implements OnInit {
     {
       "productId": 2,
       "productName": "Dell XPS",
-      "productCode": "Dell-xps-13",
+      "productCode": "Xps-13",
       "releaseDate": "April 22, 2022",
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, fuga. Itaque, provident.",
       "price": 1300,
@@ -34,14 +35,24 @@ export class ProductListComponent implements OnInit {
     },
     {
       "productId": 3,
-      "productName": "Apple Macbook Pro",
-      "productCode": "Mac-pro-14",
+      "productName": "Apple MacbookPro",
+      "productCode": "MacbookPro-14",
       "releaseDate": "September 24, 2022",
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, fuga. Itaque, provident.",
       "price": 1300,
       "starRating": 4.6,
+      "imgUrl": "assets/images/apple.jpg"
+    },
+    {
+      "productId": 2,
+      "productName": "Dell XPS",
+      "productCode": "Xps-13",
+      "releaseDate": "April 22, 2022",
+      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, fuga. Itaque, provident.",
+      "price": 1300,
+      "starRating": 4.6,
       "imgUrl": "assets/images/dell.jpg"
-    }
+    },
   ]
 
   toggleImage():void {
