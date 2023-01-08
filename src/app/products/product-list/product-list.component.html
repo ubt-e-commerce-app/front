@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-2">Filter by:</div>
             <div class="col-md-4">
-                <input type="text" [(ngModel)]="listFilter"/>
+                <input type="text" [(ngModel)]="listFilter" />
             </div>
         </div>
         <div class="row">
@@ -19,30 +19,37 @@
                 <thead>
                     <tr>
                         <th>
-                            <button class="btn btn-primary"
-                            (click)="toggleImage()">{{showImage ? 'Hide' : 'Show'}} Image</button>
+                            <button class="btn btn-primary" (click)="toggleImage()">{{showImage ? 'Hide' : 'Show'}}
+                                Image</button>
                         </th>
                         <th>Product</th>
                         <th>Code</th>
                         <th>Release date</th>
                         <th>Price</th>
                         <th>5 Star Rating</th>
+                        <th>Add to Cart</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of products">
+                    <tr *ngFor="let product of filteredProducts">
                         <td>
-                            <img *ngIf="showImage"
-                            [src]="product.imgUrl" 
-                            [title]="product.productName"
-                            [style.width.px]="imageWidth"
-                            [style.margin.px]="imageMargin">
+                            <img *ngIf="showImage" [src]="product.imgUrl" [title]="product.productName"
+                                [style.width.px]="imageWidth" [style.margin.px]="imageMargin">
                         </td>
                         <td>{{product.productName}}</td>
                         <td>{{product.productCode | lowercase | convertToSpaces: '-' }}</td>
                         <td>{{product.releaseDate}}</td>
                         <td>{{product.price | currency: 'EUR'}}</td>
-                        <td>{{product.starRating}}</td>
+                        <td>
+                            <app-star [rating]="product.starRating"
+                                      (ratingClicked)="onRatingClicked($event)">
+                            </app-star>
+                        </td>
+                        <td>
+                            <button class="btn btn-success btn-sm">
+                                <i class="fa fa-plus"></i> ADD
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>

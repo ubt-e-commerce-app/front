@@ -11,7 +11,20 @@ export class ProductListComponent implements OnInit {
   imageWidth = 50;
   imageMargin = 2;
   showImage = false;
-  listFilter = 'cart';
+  // listFilter = 'cart';
+
+  private _listFilter = '';
+  get listFilter(): string {
+    return this._listFilter;
+  }
+
+  set listFilter(value: string) {
+    this._listFilter = value;
+    console.log('In setter: ', value);
+    this.filteredProducts = this.performFilter(value);
+  }
+
+  filteredProducts: IProduct[] = [];
   products: IProduct[] = [
     {
       "productId": 1,
@@ -29,7 +42,7 @@ export class ProductListComponent implements OnInit {
       "productCode": "Xps-13",
       "releaseDate": "April 22, 2022",
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, fuga. Itaque, provident.",
-      "price": 1300,
+      "price": 1200,
       "starRating": 4.6,
       "imgUrl": "assets/images/dell.jpg"
     },
@@ -40,7 +53,7 @@ export class ProductListComponent implements OnInit {
       "releaseDate": "September 24, 2022",
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, fuga. Itaque, provident.",
       "price": 1300,
-      "starRating": 4.6,
+      "starRating": 4.0,
       "imgUrl": "assets/images/apple.jpg"
     },
     {
@@ -49,19 +62,29 @@ export class ProductListComponent implements OnInit {
       "productCode": "Xps-13",
       "releaseDate": "April 22, 2022",
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, fuga. Itaque, provident.",
-      "price": 1300,
-      "starRating": 4.6,
+      "price": 1500,
+      "starRating": 3.6,
       "imgUrl": "assets/images/dell.jpg"
     },
   ]
 
-  toggleImage():void {
+  performFilter(filterBy: string): IProduct[] {
+    filterBy = filterBy.toLocaleLowerCase();
+    return this.products.filter((product: IProduct) =>
+      product.productName.toLocaleLowerCase().includes(filterBy))
+  }
+
+  toggleImage(): void {
     this.showImage = !this.showImage;
   }
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
+    this.listFilter = 'cart'
   }
 
+  onRatingClicked(message: string):void {
+    this.pageTitle = 'Product List: ' + message;
+  }
 }
