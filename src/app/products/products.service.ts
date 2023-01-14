@@ -8,16 +8,28 @@ import { IProduct } from './product';
 })
 export class ProductsService {
 
+  private baseUrl = '/assets/api'
   private productUrl = '/assets/api/products.json';
+
 
   constructor(private http: HttpClient) { }
 
+  // get all => /api/products
   getProducts(): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>(this.productUrl).pipe(
+    return this.http.get<IProduct[]>(this.baseUrl + '/products.json').pipe(
       tap(data => console.log('All', JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
+
+  // get by id => /api/products/{id}
+  getProductById(id: number): Observable<IProduct> {
+    return this.http.get<IProduct>(this.baseUrl + '/' + id).pipe(
+      tap(data => console.log('Get by id', JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(err: HttpErrorResponse): Observable<never> {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {
@@ -28,4 +40,5 @@ export class ProductsService {
     console.error(errorMessage);
     return throwError(() => errorMessage);
   }
+
 }

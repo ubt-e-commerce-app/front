@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './shared/page-not-found.component';
 import { ProductDetailGuard } from './products/product-detail.guard';
+import { ProductEditComponent } from './products/product-edit.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ProductDetailGuard } from './products/product-detail.guard';
     ProductDetailComponent,
     HomeComponent,
     PageNotFoundComponent,
+    ProductEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +33,8 @@ import { ProductDetailGuard } from './products/product-detail.guard';
     HttpClientModule,
     RouterModule.forRoot([
       {path: 'products', component: ProductListComponent},
+      {path: 'products/edit', component: ProductEditComponent},
+      {path: 'products/edit/:id', component: ProductEditComponent},
       {
         path: 'products/:id', 
         canActivate: [ProductDetailGuard],

@@ -22,7 +22,20 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.pageTitle += `: ${id}`;
-    this.productService.getProducts().subscribe();
+    // this.productService.getProductById(id).subscribe(product => {
+    //   this.product = product;
+    // });
+    this.product = {
+      "id": 1,
+      brandName: 'hp',
+      "name": "Hp ProBook",
+      "code": "Probook-770",
+      "releaseDate": "March 18, 2022",
+      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, fuga. Itaque, provident.",
+      "price": 700,
+      "starRating": 4.2,
+      "imgUrl": "assets/images/hp.jpg"
+  };
   }
 
   onBack(){

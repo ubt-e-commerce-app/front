@@ -1,6 +1,7 @@
 <div class="card">
-    <div class="card-header">
-        {{pageTitle}}
+    <div class="card-header d-flex justify-content-between">
+        <div> {{pageTitle}}</div>
+        <div> <button class="btn btn-primary btn-sm" [routerLink]="['/products/edit']">Add new product</button></div>
     </div>
     <div class="card-body">
         <div class="row">
@@ -19,7 +20,7 @@
                 <thead>
                     <tr>
                         <th>
-                            <button class="btn btn-primary" (click)="toggleImage()">{{showImage ? 'Hide' : 'Show'}}
+                            <button class="btn btn-outline-secondary btn-sm" (click)="toggleImage()">{{showImage ? 'Hide' : 'Show'}}
                                 Image</button>
                         </th>
                         <th>Product</th>
@@ -33,13 +34,13 @@
                 <tbody>
                     <tr *ngFor="let product of filteredProducts">
                         <td>
-                            <img *ngIf="showImage" [src]="product.imgUrl" [title]="product.productName"
+                            <img *ngIf="showImage" [src]="product.imgUrl" [title]="product.name"
                                 [style.width.px]="imageWidth" [style.margin.px]="imageMargin">
                         </td>
                         <td>
-                            <a [routerLink]="['/products', product.productId]">{{product.productName}}</a>
+                            <a [routerLink]="['/products', product.id]">{{product.name}}</a>
                         </td>
-                        <td>{{product.productCode | lowercase | convertToSpaces: '-' }}</td>
+                        <td>{{product.code | lowercase | convertToSpaces: '-' }}</td>
                         <td>{{product.releaseDate}}</td>
                         <td>{{product.price | currency: 'EUR'}}</td>
                         <!-- <td>
