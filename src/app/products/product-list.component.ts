@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit, Pipe } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ProductsService } from './products.service';
-import { IProduct } from './product';
+import { IProduct } from '../models/product.model';
 
 @Component({
   selector: 'app-product-list',

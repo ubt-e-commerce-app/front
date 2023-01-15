@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IProduct } from './product';
+import { IProduct } from '../models/product.model';
 import { ProductsService } from './products.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router, 
+    private router: Router,
     private productService: ProductsService) { }
 
   ngOnInit(): void {
@@ -35,10 +35,10 @@ export class ProductDetailComponent implements OnInit {
       "price": 700,
       "starRating": 4.2,
       "imgUrl": "assets/images/hp.jpg"
-  };
+    };
   }
 
-  onBack(){
+  onBack() {
     this.router.navigate(['/products']);
   }
 }

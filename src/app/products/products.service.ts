@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, tap, throwError } from 'rxjs';
-import { IProduct } from './product';
+import { IProduct } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,6 @@ export class ProductsService {
 
   private baseUrl = '/assets/api'
   private productUrl = '/assets/api/products.json';
-
 
   constructor(private http: HttpClient) { }
 
