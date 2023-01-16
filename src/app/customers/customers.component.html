@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="car-header">
+        <span class="ms-3">
+            Sign Up!
+        </span>
+    </div>
+    <div class="card-body">
+        <form novalidate (ngSubmit)="save(signupForm)" #signupForm="ngForm">
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" for="firstName">First Name</label>
+                <div class="col-md-8">
+                    <input class="form-control" id="firstName" type="text" placeholder="First Name" required
+                        minlength="3" [(ngModel)]="customer.firstName" name="firstName" #firstName="ngModel"
+                        [ngClass]="{'is-invalid': (firstName.touched || firstName.dirty) && !firstName.valid}">
+                    <span class="invalid-feedback">
+                        <span *ngIf="firstName.errors?.['required']">
+                            Please enter your first name
+                        </span>
+                        <span *ngIf="firstName.errors?.['minlength']">
+                            The first name must be longer than 3 characters.
+                        </span>
+                    </span>
+                </div>
+                <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert">
+                    <div *ngIf="firstName.errors?.['required']">
+                        firstName is required.
+                    </div>
+                    <div *ngIf="firstName.errors?.['minlength']">
+                        firstName must be at least 4 characters long.
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

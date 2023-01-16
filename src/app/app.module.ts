@@ -15,6 +15,7 @@ import { PageNotFoundComponent } from './shared/page-not-found.component';
 import { ProductDetailGuard } from './products/product-detail.guard';
 import { ProductEditComponent } from './products/product-edit.component';
 import { UsersComponent } from './users/users.component';
+import { CustomersComponent } from './customers/customers.component';
 
 @NgModule({
   declarations: [
@@ -24,9 +25,10 @@ import { UsersComponent } from './users/users.component';
     StarComponent,
     ProductDetailComponent,
     HomeComponent,
+    CustomersComponent,
+    UsersComponent,
     PageNotFoundComponent,
     ProductEditComponent,
-    UsersComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,7 @@ import { UsersComponent } from './users/users.component';
         component: ProductDetailComponent},
       {path: 'home', component: HomeComponent},
       {path: 'users', component: UsersComponent},
+      {path: 'customers', component: CustomersComponent},
       {path: '', redirectTo: 'HomeComponent', pathMatch: 'full'}
       // {path: '**', component: PageNotFoundComponent}
     ])
