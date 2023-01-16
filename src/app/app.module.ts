@@ -14,6 +14,7 @@ import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './shared/page-not-found.component';
 import { ProductDetailGuard } from './products/product-detail.guard';
 import { ProductEditComponent } from './products/product-edit.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ProductEditComponent } from './products/product-edit.component';
     HomeComponent,
     PageNotFoundComponent,
     ProductEditComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ import { ProductEditComponent } from './products/product-edit.component';
         canActivate: [ProductDetailGuard],
         component: ProductDetailComponent},
       {path: 'home', component: HomeComponent},
+      {path: 'users', component: UsersComponent},
       {path: '', redirectTo: 'HomeComponent', pathMatch: 'full'}
       // {path: '**', component: PageNotFoundComponent}
     ])
