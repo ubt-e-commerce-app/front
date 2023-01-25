@@ -44,8 +44,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.sub = this.productService.getProducts().subscribe({
-      next: products => {
-        this.products = products,
+      next: response => {
+        this.products = response.data,
           this.filteredProducts = this.products;
       },
       error: err => this.errorMessage = err
@@ -53,7 +53,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     // this.listFilter = 'cart'
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.sub.unsubscribe();
   }
 

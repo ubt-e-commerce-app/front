@@ -1,21 +1,23 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, tap, throwError } from 'rxjs';
-import { IProduct } from '../models/product.model';
+import { GetProductResponse, IProduct } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
 
-  private baseUrl = '/assets/api'
-  private productUrl = '/assets/api/products.json';
+  // private baseUrl = '/assets/api'
+  // private productUrl = '/assets/api/products.json';
+  private baseUrl = 'https://localhost:7221/api'
+
 
   constructor(private http: HttpClient) { }
 
   // get all => /api/products
-  getProducts(): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>(this.baseUrl + '/products.json').pipe(
+  getProducts(): Observable<GetProductResponse> {
+    return this.http.get<GetProductResponse>(this.baseUrl + '/Product/GetProducts').pipe(
       tap(data => console.log('All', JSON.stringify(data))),
       catchError(this.handleError)
     );

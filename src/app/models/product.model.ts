@@ -1,6 +1,7 @@
 export interface IProduct {
   id: number;
   brandName: string;
+  brandShortName: string;
   quantity?: number;
   name: string;
   code: string;
@@ -11,4 +12,9 @@ export interface IProduct {
   finalPrice?: number;
   starRating?: number;
   imgUrl: string;
+}
+
+export interface GetProductResponse {
+  message: string;
+  data: IProduct[];
 }

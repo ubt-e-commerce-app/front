@@ -27,7 +27,8 @@ export class ProductDetailComponent implements OnInit {
     // });
     this.product = {
       "id": 1,
-      brandName: 'hp',
+      "brandName": 'hp',
+      "brandShortName": '',
       "name": "Hp ProBook",
       "code": "Probook-770",
       "releaseDate": "March 18, 2022",
