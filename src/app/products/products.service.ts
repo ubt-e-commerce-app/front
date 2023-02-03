@@ -15,13 +15,17 @@ export class ProductsService {
 
   constructor(private http: HttpClient) { }
 
-  // get all => /api/products
   getProducts(): Observable<GetProductResponse> {
-    return this.http.get<GetProductResponse>(this.baseUrl + '/Product/GetProducts').pipe(
-      tap(data => console.log('All', JSON.stringify(data))),
-      catchError(this.handleError)
-    );
+    return this.http.get<GetProductResponse>(this.baseUrl + '/Product/GetProducts');
   }
+
+  // get all => /api/products
+  // getProducts(): Observable<GetProductResponse> {
+  //   return this.http.get<GetProductResponse>(this.baseUrl + '/Product/GetProducts').pipe(
+  //     tap(data => console.log('All', JSON.stringify(data))),
+  //     catchError(this.handleError)
+  //   );
+  // }
 
   // get by id => /api/products/{id}
   getProductById(id: number): Observable<IProduct> {

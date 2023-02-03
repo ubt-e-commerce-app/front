@@ -43,14 +43,17 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.sub = this.productService.getProducts().subscribe({
-      next: response => {
-        this.products = response.data,
-          this.filteredProducts = this.products;
-      },
-      error: err => this.errorMessage = err
-    });
+    // this.sub = this.productService.getProducts().subscribe({
+    //   next: response => {
+    //     this.products = response.data,
+    //       this.filteredProducts = this.products;
+    //   },
+    //   error: err => this.errorMessage = err
+    // });
     // this.listFilter = 'cart'
+
+    this.sub = this.productService.getProducts()
+      .subscribe(response => this.products = response.data);
   }
 
   ngOnDestroy() {
