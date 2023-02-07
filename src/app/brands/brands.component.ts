@@ -9,6 +9,7 @@ import { BrandsService } from '../services/brands.service';
 })
 export class BrandsComponent implements OnInit {
 
+  pageTitle = 'Brands Page';
   brands: IBrand[] = [];
 
   constructor(private brandService: BrandsService) { }
