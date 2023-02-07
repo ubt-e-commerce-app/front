@@ -19,6 +19,22 @@ export class ProductsService {
     return this.http.get<GetProductResponse>(this.baseUrl + '/Product/GetProducts');
   }
 
+  getProduct(id: number) {
+    return this.http.get(`${this.baseUrl}/${id}`);
+  }
+
+  createProduct(product: IProduct) {
+    return this.http.post(this.baseUrl, product);
+  }
+
+  updateProduct(id: number, product: IProduct) {
+    return this.http.put(`${this.baseUrl}/${id}`, product);
+  }
+
+  deleteProduct(id: number) {
+    return this.http.delete(`${this.baseUrl}/${id}`);
+  }
+
   // get all => /api/products
   // getProducts(): Observable<GetProductResponse> {
   //   return this.http.get<GetProductResponse>(this.baseUrl + '/Product/GetProducts').pipe(

@@ -16,6 +16,8 @@ import { ProductDetailGuard } from './products/product-detail.guard';
 import { ProductEditComponent } from './products/product-edit.component';
 import { UsersComponent } from './users/users.component';
 import { CustomersComponent } from './customers/customers.component';
+import { BrandsComponent } from './brands/brands.component';
+import { BrandEditComponent } from './brands/brand-edit.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { CustomersComponent } from './customers/customers.component';
     UsersComponent,
     PageNotFoundComponent,
     ProductEditComponent,
+    BrandsComponent,
+    BrandEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,17 +40,21 @@ import { CustomersComponent } from './customers/customers.component';
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path: 'products', component: ProductListComponent},
-      {path: 'products/edit', component: ProductEditComponent},
-      {path: 'products/edit/:id', component: ProductEditComponent},
+      { path: 'home', component: HomeComponent },
+      { path: 'products', component: ProductListComponent },
+      { path: 'products/edit', component: ProductEditComponent },
+      { path: 'products/edit/:id', component: ProductEditComponent },
       {
-        path: 'products/:id', 
+        path: 'products/:id',
         canActivate: [ProductDetailGuard],
-        component: ProductDetailComponent},
-      {path: 'home', component: HomeComponent},
-      {path: 'users', component: UsersComponent},
-      {path: 'customers', component: CustomersComponent},
-      {path: '', redirectTo: 'HomeComponent', pathMatch: 'full'}
+        component: ProductDetailComponent
+      },
+      { path: 'brands', component: BrandsComponent },
+      { path: 'brands/edit', component: BrandEditComponent },
+      { path: 'brands/edit/:id', component: BrandEditComponent },
+      { path: 'users', component: UsersComponent },
+      { path: 'customers', component: CustomersComponent },
+      { path: '', redirectTo: 'HomeComponent', pathMatch: 'full' }
       // {path: '**', component: PageNotFoundComponent}
     ])
   ],

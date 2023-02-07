@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductsService } from './products.service';
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'app-product-edit',
@@ -18,7 +18,13 @@ export class ProductEditComponent implements OnInit {
   ngOnInit(): void {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
   }
-  
+
+  onSubmit(productForm: any) {
+    if (productForm.valid) {
+      // Submit form
+    }
+  }
+
   // Todos
   // Create product in service
   // Update product in service
