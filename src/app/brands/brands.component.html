@@ -4,17 +4,7 @@
         <div> <button class="btn btn-primary btn-sm" [routerLink]="['/brands/edit']">Add new Brand</button></div>
     </div>
     <div class="card-body">
-        <div class="row">
-            <div class="col-md-2">Filter by:</div>
-            <div class="col-md-4">
-                <input type="text" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <h4>Filtered by: </h4>
-            </div>
-        </div>
+
         <div class="table-responsive">
             <table class="table" *ngIf="brands.length">
                 <thead>

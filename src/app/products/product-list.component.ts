@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit, Pipe } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ProductsService } from '../services/products.service';
 import { IProduct } from '../models/product.model';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-product-list',
@@ -19,7 +20,10 @@ export class ProductListComponent implements OnInit, OnDestroy {
   products: IProduct[] = [];
   private _listFilter = '';
 
-  constructor(private productService: ProductsService) {
+  constructor(
+    private productService: ProductsService,
+    private cartService: CartService
+  ) {
   }
 
   get listFilter(): string {
@@ -59,5 +63,10 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   onRatingClicked(message: string): void {
     this.pageTitle = 'Product List: ' + message;
+  }
+
+  addToCart(productId: number, price: number) {
+    this.cartService.addCartItem(1, productId, price)
+      .subscribe(response => alert('Item added to cart'));
   }
 }

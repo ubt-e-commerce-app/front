@@ -18,6 +18,7 @@ import { UsersComponent } from './users/users.component';
 import { CustomersComponent } from './customers/customers.component';
 import { BrandsComponent } from './brands/brands.component';
 import { BrandEditComponent } from './brands/brand-edit.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { BrandEditComponent } from './brands/brand-edit.component';
     ProductEditComponent,
     BrandsComponent,
     BrandEditComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +56,7 @@ import { BrandEditComponent } from './brands/brand-edit.component';
       { path: 'brands/edit/:id', component: BrandEditComponent },
       { path: 'users', component: UsersComponent },
       { path: 'customers', component: CustomersComponent },
+      { path: 'cart', component: CartComponent },
       { path: '', redirectTo: 'HomeComponent', pathMatch: 'full' }
       // {path: '**', component: PageNotFoundComponent}
     ])

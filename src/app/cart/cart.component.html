@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-header d-flex justify-content-between">
+        <div> Cart</div>
+    </div>
+    <div class="card-body">
+
+        <div class="table-responsive">
+            <table class="table" *ngIf="productsInCart.length">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Code</th>
+                        <!-- <th>Release date</th> -->
+                        <th>Price</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr *ngFor="let product of filteredProducts"> -->
+                    <tr *ngFor="let product of productsInCart">
+
+                        <td>{{product.name}}</td>
+                        <td>{{product.code | lowercase | convertToSpaces: '-' }}</td>
+                        <td>{{product.price | currency: 'EUR'}}</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm ms-3" (click)="removeCartItem(product.id)">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
