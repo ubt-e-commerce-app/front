@@ -1,14 +1,14 @@
 <div class="card">
-    <div class="car-header">
+    <div class="card-header">
         <span class="ms-3">
-            Sign Up!
+            Order Information
         </span>
     </div>
     <div class="card-body">
         <form novalidate (ngSubmit)="save(signupForm)" #signupForm="ngForm">
-            <div class="form-group row mb-2">
+            <div class="form-group row mb-3">
                 <label class="col-md-2 col-form-label" for="firstName">First Name</label>
-                <div class="col-md-8">
+                <div class="col">
                     <input class="form-control" id="firstName" type="text" placeholder="First Name" required
                         minlength="3" [(ngModel)]="customer.firstName" name="firstName" #firstName="ngModel"
                         [ngClass]="{'is-invalid': (firstName.touched || firstName.dirty) && !firstName.valid}">
@@ -22,6 +22,58 @@
                     </span>
                 </div>
             </div>
+            <div class="form-group row mb-3">
+                <label class="col-md-2 col-form-label" for="lastName">Last Name</label>
+                <div class="col">
+                    <input class="form-control" id="lastName" type="text" placeholder="Last Name" required minlength="3"
+                        [(ngModel)]="customer.lastName" name="lastName" #lastName="ngModel"
+                        [ngClass]="{'is-invalid': (lastName.touched || lastName.dirty) && !lastName.valid}">
+                    <span class="invalid-feedback">
+                        <span *ngIf="lastName.errors?.['required']">
+                            Please enter your last name
+                        </span>
+                        <span *ngIf="lastName.errors?.['minlength']">
+                            The last first name must be longer than 3 characters.
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group row mb-3">
+                <label class="col-md-2 col-form-label" for="phone">Email</label>
+                <div class="col">
+                    <input class="form-control" id="email" type="text" placeholder="Email" required minlength="3"
+                        [(ngModel)]="customer.email" name="email" #email="ngModel"
+                        [ngClass]="{'is-invalid': (email.touched || email.dirty) && !email.valid}">
+                    <span class="invalid-feedback">
+                        <span *ngIf="email.errors?.['required']">
+                            Please enter your email address
+                        </span>
+                        <span *ngIf="email.errors?.['minlength']">
+                            The last first name must be longer than 3 characters.
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group row mb-3">
+                <label class="col-md-2 col-form-label" for="phone">Mobile Phone</label>
+                <div class="col">
+                    <input class="form-control" id="phone" type="text" placeholder="Phone" required minlength="3"
+                        [(ngModel)]="customer.phone" name="phone" #phone="ngModel"
+                        [ngClass]="{'is-invalid': (phone.touched || phone.dirty) && !phone.valid}">
+                    <span class="invalid-feedback">
+                        <span *ngIf="phone.errors?.['required']">
+                            Please enter your phone address
+                        </span>
+                        <span *ngIf="phone.errors?.['minlength']">
+                            The last first name must be longer than 3 characters.
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+            <button class="btn btn-outline-primary float-end" routerLink="/thank-you"
+                [disabled]="!signupForm.valid">Order</button>
         </form>
     </div>
 </div>

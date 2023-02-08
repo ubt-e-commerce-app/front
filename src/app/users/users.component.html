@@ -1,54 +1,41 @@
-<div class="container">
-    <h2>User Form</h2>
-    <form #form="ngForm" ngNativeValidate>
-        <div class="mb-3">
-            <label for="firstName">First Name</label>
-            <input type="text" 
-                    class="form-control"
-                    id="firstName" 
-                    name="firstName" 
-                    required
-                    #classtest
+<div class="card">
+    <div class="card-header">
+        <h5>User Form</h5>
+    </div>
+    <div class="card-body">
+        <form #form="ngForm" ngNativeValidate>
+            <div class="mb-3">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" required #classtest
                     [(ngModel)]="userSetttings.firstName">
-        </div>
+            </div>
 
-        <h3>{{classtest.className}}</h3>
+            <h5>{{classtest.className}}</h5>
 
-        <br>
+            <br>
 
-        <div class="mb-3">
-            <label for="lastName">Last Name</label>
-            <input type="text"
-                    class="form-control"
-                    id="lastName" 
-                    name="lastName"
-                    required
+            <div class="mb-3">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" required
                     [(ngModel)]="userSetttings.lastName">
-        </div>
-        <div class="mb-3">
-            <label for="email">Email</label>
-            <input type="email" 
-                    class="form-control"
-                    id="email"
-                    name="email"
-                    required
+            </div>
+            <div class="mb-3">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required
                     [(ngModel)]="userSetttings.email">
-        </div>
-        <div class="mb-3">
-            <label for="notes">Notes</label>
-            <textarea type="" 
-                    class="form-control"
-                    id="notes"
-                    name="notes"
-                    rows="2"
+            </div>
+            <div class="mb-3">
+                <label for="notes">Notes</label>
+                <textarea type="" class="form-control" id="notes" name="notes" rows="2"
                     [(ngModel)]="userSetttings.notes"></textarea>
-        </div>
-        <button class="btn btn-primary float-end" type="submit">Save</button>
-    </form>
+            </div>
+            <button class="btn btn-primary float-end" type="submit">Save</button>
+        </form>
+    </div>
 </div>
 
 <br>
 <br>
 
-<h3>{{userSetttings | json}}</h3>
-<h3>{{userSettingsCopy | json}}</h3>
+<h5>{{userSetttings | json}}</h5>
+<!-- <h3>{{userSettingsCopy | json}}</h3> -->

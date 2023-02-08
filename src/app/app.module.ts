@@ -19,6 +19,7 @@ import { CustomersComponent } from './customers/customers.component';
 import { BrandsComponent } from './brands/brands.component';
 import { BrandEditComponent } from './brands/brand-edit.component';
 import { CartComponent } from './cart/cart.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { CartComponent } from './cart/cart.component';
     BrandsComponent,
     BrandEditComponent,
     CartComponent,
+    ThankYouComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,8 +59,9 @@ import { CartComponent } from './cart/cart.component';
       { path: 'users', component: UsersComponent },
       { path: 'customers', component: CustomersComponent },
       { path: 'cart', component: CartComponent },
-      { path: '', redirectTo: 'HomeComponent', pathMatch: 'full' }
-      // {path: '**', component: PageNotFoundComponent}
+      { path: 'thank-you', component: ThankYouComponent },
+      { path: '', redirectTo: '/home', pathMatch: 'full' },
+      { path: '**', component: PageNotFoundComponent }
     ])
   ],
   providers: [],

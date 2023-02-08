@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ICartItem } from '../models/cart.model';
+import { Router } from '@angular/router';
 import { IProduct } from '../models/product.model';
 import { CartService } from '../services/cart.service';
 import { ProductsService } from '../services/products.service';
@@ -12,7 +12,9 @@ import { ProductsService } from '../services/products.service';
 export class CartComponent implements OnInit {
   productsInCart: IProduct[] = [];
 
-  constructor(private cartService: CartService, private productService: ProductsService) { }
+  constructor(private cartService: CartService,
+    private productService: ProductsService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getProductsInCart();
@@ -45,6 +47,10 @@ export class CartComponent implements OnInit {
 
           });
       });
+  }
+
+  back() {
+    this.router.navigate(['/home']);
   }
 
 }

@@ -8,7 +8,7 @@
         <form novalidate (ngSubmit)="onSubmit()" #brandForm="ngForm">
             <div class="form-group row mb-2">
                 <label class="col-md-2 col-form-label" for="brand">Brand Name</label>
-                <div class="col-md-8">
+                <div class="col">
                     <input class="form-control" id="brand" type="text" placeholder="Brand Name" required minlength="2"
                         [(ngModel)]="brand.name" name="name" #name="ngModel"
                         [ngClass]="{'is-invalid': (name.touched || name.dirty) && !name.valid}">
@@ -24,7 +24,7 @@
             </div>
             <div class="form-group row mb-2">
                 <label class="col-md-2 col-form-label" for="brand">Short Name</label>
-                <div class="col-md-8">
+                <div class="col">
                     <input class="form-control" id="brand" type="text" placeholder="Short Name" required minlength="2"
                         [(ngModel)]="brand.shortName" name="shortName" #shortName="ngModel"
                         [ngClass]="{'is-invalid': (shortName.touched || shortName.dirty) && !shortName.valid}">
@@ -38,7 +38,8 @@
                     </span>
                 </div>
             </div>
-            <button class="btn btn-primary mt-3" type="submit" [disabled]="!brandForm.form.valid">Save</button>
+            <button class="btn btn-primary mt-3 float-end" type="submit"
+                [disabled]="!brandForm.form.valid">Save</button>
         </form>
     </div>
 </div>
