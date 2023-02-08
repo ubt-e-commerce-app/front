@@ -25,7 +25,7 @@ export class BrandsService {
   }
 
   updateBrand(brand: IBrand) {
-    return this.http.put<IBrand>(`${this.baseUrl}/${brand.id}`, brand);
+    return this.http.put<IBrand>(`${this.baseUrl}/Update/${brand.id}`, brand);
   }
 
   deleteBrand(id: number) {
