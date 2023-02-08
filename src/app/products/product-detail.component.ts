@@ -35,7 +35,7 @@ export class ProductDetailComponent implements OnInit {
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, fuga. Itaque, provident.",
       "price": 700,
       "starRating": 4.2,
-      "imgUrl": "assets/images/hp.jpg"
+      "imgUrl": ""
     };
   }
 

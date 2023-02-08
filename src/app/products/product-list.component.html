@@ -27,7 +27,7 @@
                         </th>
                         <th>Product</th>
                         <th>Code</th>
-                        <th>Release date</th>
+                        <!-- <th>Release date</th> -->
                         <th>Price</th>
                         <th>5 Star Rating</th>
                         <th>Add to Cart</th>
@@ -35,7 +35,7 @@
                 </thead>
                 <tbody>
                     <!-- <tr *ngFor="let product of filteredProducts"> -->
-                    <tr *ngFor="let product of products">
+                    <tr *ngFor="let product of filteredProducts">
                         <td>
                             <img *ngIf="showImage" [src]="product.imgUrl" [title]="product.name"
                                 [style.width.px]="imageWidth" [style.margin.px]="imageMargin">
@@ -44,7 +44,7 @@
                             <a [routerLink]="['/products', product.id]">{{product.name}}</a>
                         </td>
                         <td>{{product.code | lowercase | convertToSpaces: '-' }}</td>
-                        <td>{{product.releaseDate}}</td>
+                        <!-- <td>{{product.releaseDate}}</td> -->
                         <td>{{product.price | currency: 'EUR'}}</td>
                         <!-- <td>
                             <app-star [rating]="product.starRating"

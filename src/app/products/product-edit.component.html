@@ -2,6 +2,23 @@
     <div class="form-group">
         <label for="productName">Product Name</label>
         <input type="text" class="form-control" id="productName" name="productName" ngModel required />
+        <span>
+            <p class="text-danger" [hidden]="!productForm.touched">Product name is required</p>
+        </span>
+    </div>
+    <div class=" form-group" id="brandName">
+        <label for="productName">Brand Name</label>
+        <select class="form-select" aria-label="Default select example" required>
+            <option selected>Select Brand Name</option>
+            <option value="1">Apple</option>
+            <option value="2">Hp</option>
+            <option value="3">Dell</option>
+            <option value="4">Lenovo</option>
+            <option value="4">Accer</option>
+        </select>
+        <span [hidden]="!productForm.touched || productForm.dirty">
+            <p class="text-danger">Brand name is required</p>
+        </span>
     </div>
     <div class="form-group">
         <label for="productDescription">Product Description</label>
@@ -11,5 +28,6 @@
         <label for="productPrice">Product Price</label>
         <input type="number" class="form-control" id="productPrice" name="productPrice" ngModel required />
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+
+    <button type="submit" class="btn btn-primary mt-3 float-end" [disabled]="!productForm.valid">Submit</button>
 </form>

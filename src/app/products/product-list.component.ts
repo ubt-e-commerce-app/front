@@ -15,8 +15,13 @@ export class ProductListComponent implements OnInit, OnDestroy {
   showImage = false;
   errorMessage = '';
   sub!: Subscription;
-
+  filteredProducts: IProduct[] = [];
+  products: IProduct[] = [];
   private _listFilter = '';
+
+  constructor(private productService: ProductsService) {
+  }
+
   get listFilter(): string {
     return this._listFilter;
   }
@@ -27,15 +32,13 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.filteredProducts = this.performFilter(value);
   }
 
-  filteredProducts: IProduct[] = [];
-  products: IProduct[] = [];
-  constructor(private productService: ProductsService) {
-  }
-
   performFilter(filterBy: string): IProduct[] {
     filterBy = filterBy.toLocaleLowerCase();
-    return this.products.filter((product: IProduct) =>
-      product.name.toLocaleLowerCase().includes(filterBy))
+    const filteredProducts = this.products.filter((product: IProduct) => {
+      return product.name.toLocaleLowerCase().includes(filterBy);
+    })
+
+    return filteredProducts;
   }
 
   toggleImage(): void {
@@ -43,17 +46,11 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    // this.sub = this.productService.getProducts().subscribe({
-    //   next: response => {
-    //     this.products = response.data,
-    //       this.filteredProducts = this.products;
-    //   },
-    //   error: err => this.errorMessage = err
-    // });
-    // this.listFilter = 'cart'
-
     this.sub = this.productService.getProducts()
-      .subscribe(response => this.products = response.data);
+      .subscribe(response => {
+        this.products = response.data;
+        this.filteredProducts = this.products;
+      });
   }
 
   ngOnDestroy() {

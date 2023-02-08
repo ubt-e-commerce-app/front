@@ -21,7 +21,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Brand Name</th>
-                        <th>Logo</th>
+                        <!-- <th>Logo</th> -->
                         <th>Short Name</th>
                         <th></th>
                     </tr>
@@ -33,15 +33,17 @@
                             {{brand.id}}
                         </td>
                         <td>{{brand.name}}</td>
-                        <td>{{brand.logo }}</td>
+                        <!-- <td>{{brand.logo }}</td> -->
                         <td>{{brand.shortName }}</td>
-                        <td class="">
-                            <button class="btn btn-outline-warning me-2" [routerLink]="['/brands/edit/', brand.id]">
-                                <i class="fa fa-pencil" aria-hidden="true"></i>
-                            </button>
-                            <button class="btn btn-danger" (click)="delete(brand.id!)">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </button>
+                        <td>
+                            <span class="float-end">
+                                <button class="btn btn-outline-warning me-2" [routerLink]="['/brands/edit/', brand.id]">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                </button>
+                                <button class="btn btn-danger" (click)="delete(brand.id!)">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </button>
+                            </span>
                         </td>
                     </tr>
                 </tbody>
