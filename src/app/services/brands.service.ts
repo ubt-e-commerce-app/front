@@ -29,6 +29,6 @@ export class BrandsService {
   }
 
   deleteBrand(id: number) {
-    return this.http.delete
+    return this.http.delete<any>(`${this.baseUrl}/${id}`);
   }
 }

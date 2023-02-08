@@ -19,21 +19,30 @@
             <table class="table" *ngIf="brands.length">
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Brand Name</th>
                         <th>Logo</th>
                         <th>Short Name</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- <tr *ngFor="let product of filteredbrands"> -->
                     <tr *ngFor="let brand of brands">
-
                         <td>
-                            <a [routerLink]="['/brands', brand.id]">{{brand.name}}</a>
+                            {{brand.id}}
                         </td>
+                        <td>{{brand.name}}</td>
                         <td>{{brand.logo }}</td>
                         <td>{{brand.shortName }}</td>
-
+                        <td class="">
+                            <button class="btn btn-outline-warning me-2" [routerLink]="['/brands/edit/', brand.id]">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                            </button>
+                            <button class="btn btn-danger" (click)="delete(brand.id!)">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>

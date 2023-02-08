@@ -19,4 +19,20 @@ export class BrandsComponent implements OnInit {
       .subscribe(res => this.brands = res.data);
   }
 
+  edit() {
+    console.log('Clicked edit');
+  }
+
+  delete(brandId: number) {
+    let confirmed = confirm("Confirm to delete!")
+    if (confirmed) {
+      this.brandService.deleteBrand(brandId)
+        .subscribe(res => {
+          // this.brands = this.brands.filter(x => x.id !== brandId);
+          this.brandService.getBrands()
+            .subscribe(res => this.brands = res.data);
+        });
+    }
+  }
+
 }
