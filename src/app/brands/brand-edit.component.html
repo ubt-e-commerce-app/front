@@ -1,7 +1,7 @@
-<div class="card">
+<div class="card" *ngIf="brand">
     <div class="car-header">
         <span class="ms-3">
-            Register Brand!
+            {{brand.id ? 'Edit' : 'Add'}} Brand
         </span>
     </div>
     <div class="card-body">
@@ -38,7 +38,7 @@
                     </span>
                 </div>
             </div>
-            <button class="btn btn-primary" type="submit" [disabled]="!brandForm.form.valid">Save</button>
+            <button class="btn btn-primary mt-3" type="submit" [disabled]="!brandForm.form.valid">Save</button>
         </form>
     </div>
 </div>

@@ -17,7 +17,7 @@ export class BrandsService {
   }
 
   getBrand(id: number) {
-    return this.http.get<IGetBrandResponse>(`${this.baseUrl}/${id}`)
+    return this.http.get<IGetBrandResponse>(`${this.baseUrl}/GetBrandById?id=${id}`)
   }
 
   createBrand(brand: IBrand) {
